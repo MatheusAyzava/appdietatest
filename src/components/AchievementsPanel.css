@@ -1,0 +1,186 @@
+.achievements-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.achievements-panel {
+  background: white;
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(78, 205, 196, 0.15);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+.achievements-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background: rgba(21, 27, 46, 0.95);
+  z-index: 10;
+}
+
+.achievements-header h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+.streak-display {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.streak-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 170, 0, 0.2) 0%, rgba(255, 140, 0, 0.2) 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 170, 0, 0.3);
+}
+
+.streak-icon {
+  font-size: 3rem;
+}
+
+.streak-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.streak-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.streak-value {
+  color: #ffaa00;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.achievements-list {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #E8E8E8;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.achievement-item.unlocked {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(149, 225, 211, 0.1) 100%);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.15);
+}
+
+.achievement-item.locked {
+  opacity: 0.6;
+}
+
+.achievement-item:hover {
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievement-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.achievement-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.achievement-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.unlocked-badge {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-panel {
+    width: 95%;
+    max-height: 95vh;
+  }
+}
+

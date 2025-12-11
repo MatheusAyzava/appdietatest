@@ -1,0 +1,222 @@
+.privacy-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.privacy-panel {
+  background: white;
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(78, 205, 196, 0.15);
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+.privacy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background: rgba(21, 27, 46, 0.95);
+  z-index: 10;
+}
+
+.privacy-header h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+.privacy-content {
+  padding: 1.5rem;
+}
+
+.privacy-intro {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.privacy-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.privacy-mode-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #E8E8E8;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.privacy-mode-card:hover {
+  background: #F8F9FA;
+  border-color: var(--primary-color);
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.15);
+}
+
+.privacy-mode-card.selected {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(149, 225, 211, 0.1) 100%);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 20px rgba(78, 205, 196, 0.2);
+}
+
+.mode-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-content {
+  flex: 1;
+}
+
+.mode-content h3 {
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.mode-description {
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+}
+
+.mode-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mode-features li {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.mode-radio {
+  display: flex;
+  align-items: center;
+}
+
+.radio-button {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.radio-button.checked {
+  border-color: var(--primary-color);
+  background: rgba(0, 212, 255, 0.2);
+}
+
+.radio-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.save-privacy-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-privacy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-panel {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .privacy-mode-card {
+    flex-direction: column;
+  }
+
+  .mode-radio {
+    align-self: flex-end;
+  }
+}
+

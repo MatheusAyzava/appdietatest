@@ -1,0 +1,43 @@
+// Service Worker para funcionamento offline
+const CACHE_NAME = 'whis-diet-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/src/main.jsx',
+  '/src/App.jsx',
+  '/src/index.css',
+  '/icon-192.png',
+  '/icon-512.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        // Retorna do cache se disponível, senão busca na rede
+        return response || fetch(event.request);
+      })
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+

@@ -1,0 +1,142 @@
+.virtual-coach {
+  position: fixed;
+  bottom: 100px;
+  left: 2rem;
+  max-width: 300px;
+  z-index: 1000;
+  animation: slideInLeft 0.5s ease;
+}
+
+.coach-avatar {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.coach-face {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--success-color) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 20px rgba(78, 205, 196, 0.4);
+  position: relative;
+  z-index: 2;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.coach-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.coach-messages {
+  background: white;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.coach-messages::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+.coach-message p {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.coach-toggle {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 68, 68, 0.2);
+  border: 1px solid #ff4444;
+  border-radius: 50%;
+  color: #ff4444;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.coach-toggle:hover {
+  background: rgba(255, 68, 68, 0.3);
+  transform: scale(1.1);
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .virtual-coach {
+    left: 1rem;
+    bottom: 80px;
+    max-width: 250px;
+  }
+
+  .coach-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .coach-face {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .coach-pulse {
+    width: 50px;
+    height: 50px;
+  }
+}
+

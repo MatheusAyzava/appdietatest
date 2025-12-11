@@ -1,0 +1,33 @@
+{
+  "name": "whis-diet",
+  "version": "1.0.0",
+  "description": "Whis Diet - Seu assistente pessoal para controle de dieta, calorias e hidratação",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "dieta",
+    "calorias",
+    "emagrecimento",
+    "água",
+    "hidratação",
+    "saúde",
+    "fitness",
+    "pwa",
+    "mobile"
+  ],
+  "author": "Whis Diet",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
+
