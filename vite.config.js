@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// Configuração simples padrão do Vite + React
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -9,16 +10,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false,
-    minify: 'terser',
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom']
-        }
-      }
-    }
+    assetsDir: 'assets'
   },
   publicDir: 'public'
 })
